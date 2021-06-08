@@ -15,6 +15,8 @@ data.map((post, id) => {
     })
 })
 
+app.use(cors());
+app.use(express.json());
 
 let count = 0;
 const singlePost = (req, res, next) => {
@@ -40,8 +42,6 @@ const login = (req, res, next) => {
 //     res.sendFile(path.join(__dirname, 'ubuntu.png'));
 // }
 
-app.use(cors());
-app.use(express.json());
 app.get('/post/:id', singlePost);
 app.get('/posts', delay, displayPosts);
 app.post('/addpost', addPost);
