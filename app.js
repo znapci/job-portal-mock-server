@@ -32,7 +32,7 @@ const addPost = (req, res, next) => {
     console.log(req.body);
 }
 const login = (req, res, next) => {
-    console.log(req.body);
+    console.log(req.body);//spits empty object
     res.send(req.body);
 }
 // const sendImage = (req, res, next) => {
