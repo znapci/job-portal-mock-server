@@ -10,8 +10,10 @@ const t = [];
 data.map((post, id) => {
     t.push({
         ...post, id: id,
-        startDate: date.toDateString(),
-        applyByDate: date.toDateString()
+        companyUrl: '/company',
+        joinByDate: date.toDateString(),
+        applyByDate: date.toDateString(),
+        tags: ['new', 'hot', 'trending', 'in-demand', 'test']
     })
 })
 
@@ -35,7 +37,11 @@ const addPost = (req, res, next) => {
 }
 const login = (req, res, next) => {
     console.log(req.body);//spits empty object
-    res.send(req.body);
+    res.send();
+}
+const company = (req, res, next) => {
+    console.log(req.body);
+    res.redirect('http://google.com')
 }
 // const sendImage = (req, res, next) => {
 //     console.log('image');
@@ -45,6 +51,7 @@ const login = (req, res, next) => {
 app.get('/post/:id', singlePost);
 app.get('/posts', delay, displayPosts);
 app.post('/addpost', addPost);
-app.use('/login', login);
+app.get('/company', company)
+app.post('/login', login);
 // app.use('/img', delay, sendImage);
 app.listen(8000);
