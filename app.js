@@ -37,7 +37,17 @@ const addPost = (req, res, next) => {
 }
 const login = (req, res, next) => {
     console.log(req.body);//spits empty object
-    res.send(req.body);
+    if (req.body.password === 'success')
+        res.json({
+            status: 'success',
+            token: 'lol'
+        });
+    else {
+        res.json({
+            status: 'failure',
+            token: 'lol'
+        });
+    }
 }
 const company = (req, res, next) => {
     console.log(req.body);
