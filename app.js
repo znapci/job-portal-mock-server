@@ -10,7 +10,7 @@ const t = [];
 data.map((post, id) => {
     t.push({
         ...post, id: id,
-        companyUrl: '/company',
+        companyUrl: 'bhavam',
         joinByDate: date.toDateString(),
         applyByDate: date.toDateString(),
         tags: ['new', 'hot', 'trending', 'in-demand', 'test']
@@ -37,7 +37,7 @@ const addPost = (req, res, next) => {
 }
 const login = (req, res, next) => {
     console.log(req.body);//spits empty object
-    res.send();
+    res.send(req.body);
 }
 const company = (req, res, next) => {
     console.log(req.body);
