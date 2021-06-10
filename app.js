@@ -63,6 +63,6 @@ app.get('/post/:id', singlePost);
 app.get('/posts', delay, displayPosts);
 app.post('/addpost', addPost);
 app.get('/company', company)
-app.post('/login', login);
+app.post('/login', delay, login);
 // app.use('/img', delay, sendImage);
 app.listen(8000);
