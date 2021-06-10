@@ -13,6 +13,7 @@ data.map((post, id) => {
         companyUrl: 'bhavam',
         joinByDate: date.toDateString(),
         applyByDate: date.toDateString(),
+        place: 'Nitte',
         tags: ['new', 'hot', 'trending', 'in-demand', 'test']
     })
 })
