@@ -5,6 +5,18 @@ const app = express();
 const jdata = require('./data.json');
 const data = Array(20).fill(jdata);
 const date = new Date();
+const LoremIpsum = require("lorem-ipsum").LoremIpsum;
+
+const lorem = new LoremIpsum({
+    sentencesPerParagraph: {
+        max: 8,
+        min: 4
+    },
+    wordsPerSentence: {
+        max: 16,
+        min: 4
+    }
+});
 
 const t = [];
 data.map((post, id) => {
@@ -14,7 +26,10 @@ data.map((post, id) => {
         joinByDate: date.toDateString(),
         applyByDate: date.toDateString(),
         place: 'Nitte',
-        tags: ['new', 'hot', 'trending', 'in-demand', 'test']
+        tags: ['new', 'hot', 'trending', 'in-demand', 'test'],
+        responsibilities: ['Design the system', 'Implement designs', 'Collaborate with others', 'Come up with new ideas'],
+        requirements: ['Have basic knowledge of database', 'Know React', 'Know Node.js/express.js', 'Know git-github', 'available for next 2 months'],
+        description: lorem.generateParagraphs(3)
     })
 })
 
