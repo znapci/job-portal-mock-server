@@ -16,6 +16,8 @@
     "lorem-ipsum": "^2.0.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "eslint": "^7.29.0",
+    "nodemon": "^2.0.7",
+    "standard": "^16.0.3"
   }
 }
