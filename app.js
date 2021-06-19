@@ -19,18 +19,20 @@ const lorem = new LoremIpsum({
 })
 
 const t = data.map((post, id) =>
-  ({
-    ...post,
-    id: id,
-    companyUrl: 'bhavam',
-    joinByDate: date.toDateString(),
-    applyByDate: date.toDateString(),
-    place: 'Nitte',
-    tags: ['new', 'hot', 'trending', 'in-demand', 'test'],
+({
+  ...post,
+  id: id,
+  companyUrl: 'bhavam',
+  joinByDate: date.toLocaleDateString(),
+  applyByDate: date.toLocaleDateString(),
+  place: 'Nitte',
+  tags: ['new', 'hot', 'trending', 'in-demand', 'test'],
+  modalContent: {
     responsibilities: ['Design the system', 'Implement designs', 'Collaborate with others', 'Come up with new ideas'],
     requirements: ['Have basic knowledge of database', 'Know React', 'Know Node.js/express.js', 'Know git-github', 'available for next 2 months'],
     description: lorem.generateParagraphs(3)
-  })
+  }
+})
 )
 
 app.use(cors())
