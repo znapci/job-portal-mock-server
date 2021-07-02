@@ -35,6 +35,8 @@ const t = data.map((post, id) =>
 })
 )
 
+
+
 app.use(cors())
 app.use(express.json())
 
@@ -44,8 +46,15 @@ const singlePost = (req, res, next) => {
   res.status(200).send(`Post ${req.params.id}`)
 }
 const displayPosts = (req, res, next) => {
-  console.log('no. of req to displayPosts: ', ++count)
-  res.status(200).json(t)
+  console.log('no. of req to displayPosts: ', ++count);
+  const nd = {
+    postsData: t,
+    pageData: {
+      totalPages: 20,
+    }
+  }
+  console.log(req.params);
+  res.status(200).json(nd)
 }
 const delay = (req, res, next) => {
   setTimeout(next, 2000)
@@ -77,7 +86,7 @@ const company = (req, res, next) => {
 // }
 
 app.get('/post/:id', singlePost)
-app.get('/posts', delay, displayPosts)
+app.get('/posts/:pageNo', delay, displayPosts)
 app.post('/addpost', addPost)
 app.get('/company', company)
 app.post('/login', delay, login)
