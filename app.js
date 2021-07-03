@@ -3,7 +3,7 @@ const cors = require('cors')
 const app = express()
 // const path = require('path');
 const jdata = require('./data.json')
-const data = Array(20).fill(jdata)
+const data = Array(15).fill(jdata)
 const date = new Date()
 const LoremIpsum = require('lorem-ipsum').LoremIpsum
 
@@ -54,7 +54,11 @@ const displayPosts = (req, res, next) => {
     }
   }
   console.log(req.params);
-  res.status(200).json(nd)
+  if (req.params.pageNo <= 20 && req.params.pageNo > 1) {
+    res.status(200).json(nd);
+  }
+  else
+    res.status(404).send('Not found');
 }
 const delay = (req, res, next) => {
   setTimeout(next, 2000)
