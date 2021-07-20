@@ -54,7 +54,7 @@ const displayPosts = (req, res, next) => {
     }
   }
   console.log(req.params);
-  if (req.params.pageNo <= 20 && req.params.pageNo > 1) {
+  if (req.params.pageNo <= 20 && req.params.pageNo >= 1) {
     res.status(200).json(nd);
   }
   else
@@ -90,9 +90,9 @@ const company = (req, res, next) => {
 // }
 
 app.get('/post/:id', singlePost)
-app.get('/posts/:pageNo', delay, displayPosts)
+app.get('/posts/:pageNo', displayPosts)
 app.post('/addpost', addPost)
 app.get('/company', company)
-app.post('/login', delay, login)
+app.post('/login', login)
 // app.use('/img', delay, sendImage);
 app.listen(8000)
